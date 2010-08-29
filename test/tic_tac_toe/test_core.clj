@@ -6,9 +6,9 @@
 (def eboard [-1 1 1 0 0 1 -1 1 0])
 
 (deftest test-move-possible 
-  (is (= false (move-possible eboard 7))
+  (is (= false (is-move-possible eboard 7))
       "Move 7 is not possible.")
-  (is (= true (move-possible eboard 8))
+  (is (= true (is-move-possible eboard 8))
       "Move 8 is possible."))
       
 (deftest test-possible-moves
