@@ -6,8 +6,8 @@ possibly another person, via a web application.
 
 ## Plans
 
-> Note: Capitals are used to indicate that a definition has 
-> already been written.
+> So far, we have finished possible-moves and its 
+> dependencies.
 
                best-move [board who-plays-next]
                         =
@@ -22,10 +22,10 @@ possibly another person, via a web application.
           =                                 expected-game-result [board who-plays-next]
           =                                  
           =                                  
- POSSIBLE-MOVES [board]
+ possible-moves [board]
           =   
        =============
        =           =
-  ALL-MOVES        =
+  all-moves        =
                    =
-        IS-MOVE-POSSIBLE [board move]
+        is-move-possible [board move]
