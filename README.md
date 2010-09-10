@@ -14,7 +14,7 @@ possibly another person, via a web application.
           ==========================================
           =             =                          =
           =             =                          =
-          =             =                what-board-looks-like-after-move [board moveplayer]
+          =             =                what-board-looks-like-after-move [board move player]
           =             =
           =             =
           =             ============================
