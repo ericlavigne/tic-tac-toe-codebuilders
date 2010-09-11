@@ -13,3 +13,10 @@
       
 (deftest test-possible-moves
   (is (= [3 4 8] (possible-moves eboard))))
+
+(deftest test-what-board-looks-like-after-move 
+  (is (=  [0 0 0 1 -1 -1 0 1 1]
+          (what-board-looks-like-after-move
+              [0 0 0 1 -1 -1 0 0 1]
+              7
+              1))))
