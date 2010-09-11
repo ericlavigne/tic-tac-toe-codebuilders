@@ -20,12 +20,12 @@ possibly another person, via a web application.
           =             ============================
           =                                        =
           =                                 expected-game-result [board who-plays-next]
-          =                                  
-          =                                  
-     possible-moves [board]
-            =   
-          =============
-          =           =
+          =                                        =
+          =                                 ===============================================
+     possible-moves [board]                        =                =
+            =                               is-board-full [board]   =
+          =============                                             =
+          =           =                                      who-won [board]
      all-moves        =
-                      =
+                      =   
          is-move-possible [board move]
