@@ -29,3 +29,7 @@ possibly another person, via a web application.
      all-moves        =
                       =   
          is-move-possible [board move]
+
+Winning combinations (8 total): [1 1 1 0 0 0 0 0 0], [0 0 0 1 1 1 0 0 0], [0 0 0 0 0 0 1 1 1],
+                                [1 0 0 1 0 0 1 0 0], [0 1 0 0 1 0 0 1 0], [0 0 1 0 0 1 0 0 1],
+                                [1 0 0 0 1 0 0 0 1], [0 0 1 0 1 0 1 0 0]
