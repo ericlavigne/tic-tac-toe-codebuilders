@@ -12,14 +12,16 @@
       "Move 8 is possible."))
       
 (deftest test-possible-moves
-  (is (= [3 4 8] (possible-moves eboard))))
+  (is (= [3 4 8] (possible-moves eboard))
+      "possible-moves broken"))
 
 (deftest test-what-board-looks-like-after-move 
   (is (=  [0 0 0 1 -1 -1 0 1 1]
           (what-board-looks-like-after-move
               [0 0 0 1 -1 -1 0 0 1]
               7
-              1))))
+              1))
+	"what-board-looks-like broken"))
 	       
 (deftest test-is-board-full
   (is (= true (is-board-full [1 1 1 1 1 1 1 1 1]))
@@ -28,3 +30,17 @@
 	"Board is actually empty!")
   (is (= false (is-board-full [1 0 1 0 -1 0 0 -1 0]))
 	"Board is not full!"))
+
+(deftest test-won-by-method
+  (is (= true
+	(won-by-method?
+	    [1 0 -1 -1 1 0 -1 0 1]
+	    [0 4 8]
+	    1))
+	    "won-by-method broken")
+  (is (= false
+	(won-by-method?
+	    [1 0 -1 -1 1 0 -1 0 0]
+	    [0 4 8]
+	    1))
+	"won-by-method broken"))
