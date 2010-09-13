@@ -33,14 +33,20 @@
 
 (deftest test-won-by-method
   (is (= true
-	(won-by-method?
-	    [1 0 -1 -1 1 0 -1 0 1]
-	    [0 4 8]
-	    1))
+	       (won-by-method?
+	          [1 0 -1 -1 1 0 -1 0 1]
+	          [0 4 8]
+	          1))
 	    "won-by-method broken")
   (is (= false
-	(won-by-method?
-	    [1 0 -1 -1 1 0 -1 0 0]
-	    [0 4 8]
-	    1))
-	"won-by-method broken"))
+	       (won-by-method?
+	          [1 0 -1 -1 1 0 -1 0 0]
+	          [0 4 8]
+	          1))
+	    "won-by-method broken"))
+	
+(deftest test-player-won?
+  (is (= true
+         (player-won? [1 0 -1 -1 1 0 -1 0 1]
+                      1))
+       "Player 1 should win this"))

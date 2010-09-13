@@ -26,3 +26,8 @@
 		    (= player
 			(nth board position)))
 		method))
+		
+(defn player-won? [board player]
+    (some (fn [winning-combination]
+              (won-by-method? board winning-combination player))
+          winning-combinations))
