@@ -23,11 +23,11 @@ possibly another person, via a web application.
           =                                        =
           =                                 ===============================================
      possible-moves [board]                        =                =
-            =                               is-board-full [board]   =
-          =============                                             =
+            =                               is-board-full [board]      =
+          =============                                            =
           =           =                                      who-won [board]
-     all-moves        =
-                      =   
+     all-moves     =
+		       =   
          is-move-possible [board move]
 
 Winning combinations (8 total): [1 1 1 0 0 0 0 0 0], [0 0 0 1 1 1 0 0 0], [0 0 0 0 0 0 1 1 1],

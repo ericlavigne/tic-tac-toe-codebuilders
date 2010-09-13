@@ -20,3 +20,11 @@
               [0 0 0 1 -1 -1 0 0 1]
               7
               1))))
+	       
+(deftest test-is-board-full
+  (is (= true (is-board-full [1 1 1 1 1 1 1 1 1]))
+	"Board is actually full!")
+  (is (= false (is-board-full [0 0 0 0 0 0 0 0 0]))
+	"Board is actually empty!")
+  (is (= false (is-board-full [1 0 1 0 -1 0 0 -1 0]))
+	"Board is not full!"))
