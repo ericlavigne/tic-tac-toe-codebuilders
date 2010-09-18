@@ -27,6 +27,7 @@ possibly another person, via a web application.
           =============                                            =
           =           =                                      who-won [board]
      all-moves     =                                             =             =
-		       =                                            =              =
-         is-move-possible [board move]                   =              =
+		       =                                            =             =
+         is-move-possible [board move]                   =           player-won? [board player]
+										    =
 						    Winning-combinations   won-by-method? [board method player]
