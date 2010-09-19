@@ -32,3 +32,9 @@
   (some (fn [winning-combination]
 	  (won-by-method? board winning-combination player))
 	winning-combinations))
+
+(defn who-won [board] 
+  (cond 
+    (player-won? board 1) 1 
+    (player-won? board -1) -1
+    true 0))
