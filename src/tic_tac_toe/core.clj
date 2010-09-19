@@ -9,6 +9,7 @@
     (filter (fn [move]
                 (is-move-possible board move))
             all-moves))
+
 (defn what-board-looks-like-after-move [board move player]
     (assoc board move player))
     
