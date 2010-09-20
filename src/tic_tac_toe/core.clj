@@ -10,7 +10,7 @@
 	    (is-move-possible board move))
 	  all-moves))
 
-(defn what-board-looks-like-after-move [board move player]
+(defn board-after-move [board move player]
   (assoc board move player))
     
 (defn is-board-full [board]
@@ -34,7 +34,25 @@
 	winning-combinations))
 
 (defn who-won [board] 
-  (cond 
+  (cond
     (player-won? board 1) 1 
-    (player-won? board -1) -1
+    (player-won? board -1) -1 
     true 0))
+    
+(defn expected-result-of-move [board player move expected-result]
+  (let [new-board (board-after-move board move player)
+         new-player (* -1 player)]
+         (expected-result new-board new-player)))
+	 
+(defn expected-result [board next-player]
+  (let [winner (who-won board)]
+    (cond (not (= 0 winner)) winner
+    (is-board-full board) 0
+    true (let [results (map (fn [move]
+                                     (expected-result-of-move board
+				                                         next-player
+									 move
+									 expected-result))
+				    (possible-moves board))]
+	    (reduce (if (= next-player 1) max min)
+	                results)))))
