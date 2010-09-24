@@ -39,23 +39,23 @@
    (player-won? board -1) -1 
    true 0))
 
+(defn max-key2
+  "Returns the x for which (k x), a number, is greatest."
+  ([k x] x)
+  ([k x y] (if (> (k x) (k y)) x y))
+  ([k x y & more]
+     (second (reduce (fn [x y] (if (> (first x) (first y)) x y))
+                     (map #(vector (k %) %) (cons x (cons y more)))))))
+
 (defn max-value [score-fn & keys]
-  (score-fn (apply max-key score-fn keys)))
+  (score-fn (apply max-key2 score-fn keys)))
 
-(defn expected-result-of-move [board player move expected-result]
-  (let [new-board (board-after-move board move player)
-	new-player (* -1 player)]
-    (expected-result new-board new-player)))
-
-(defn expected-result [board next-player]
+(defn expected-result [board player]
   (let [winner (who-won board)]
     (cond (not (= 0 winner)) winner
 	  (is-board-full board) 0
-	  true (let [results (map (fn [move]
-				    (expected-result-of-move board
-							     next-player
-							     move
-							     expected-result))
-				  (possible-moves board))]
-		 (reduce (if (= next-player 1) max min)
-			 results)))))
+	  true (apply max-value (fn [move] (* player
+	                           (expected-result 
+				      (board-after-move board move player)
+				      (* -1 player)))) 
+				(possible-moves board)))))
