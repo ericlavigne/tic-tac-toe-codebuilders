@@ -55,6 +55,18 @@
 		       -1  0  1]
                       1))
       "Player 1 should win this"))
+      
+(deftest max-key-test
+  (is (= "boulder"
+         (apply max-key count
+	              ["grain" "pebble" "orange" "boulder"]))
+     "Max value is actually 7"))
+
+(deftest max-value-test
+  (is (= 7
+          (apply max-value count
+	               ["grain" "pebble" "orange" "boulder"]))
+     "Max value is actually 7"))
 
 (comment(deftest test-expected-result-of-move
 	  (is (= true

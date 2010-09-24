@@ -39,6 +39,9 @@
    (player-won? board -1) -1 
    true 0))
 
+(defn max-value [score-fn & keys]
+  (score-fn (apply max-key score-fn keys)))
+
 (defn expected-result-of-move [board player move expected-result]
   (let [new-board (board-after-move board move player)
 	new-player (* -1 player)]
