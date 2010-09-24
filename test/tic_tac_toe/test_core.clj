@@ -20,10 +20,10 @@
 (deftest test-board-after-move 
   (is (=  [0 0 0 1 -1 -1 0 1 1]
           (board-after-move [0 0 0 1 -1 -1 0 0 1]
-					    7
-					    1))
+			    7
+			    1))
       "board-after-move broken"))
-	       
+
 (deftest test-is-board-full
   (is (= true (is-board-full [1 1 1 1 1 1 1 1 1]))
       "Board is actually full!")
@@ -47,7 +47,7 @@
 			 [0 4 8]
 			 1))
       "won-by-method broken"))
-	
+
 (deftest test-player-won?
   (is (= true
          (player-won? [ 1  0 -1 
@@ -57,29 +57,29 @@
       "Player 1 should win this"))
 
 (comment(deftest test-expected-result-of-move
-  (is (= true
-	 (expected-result-of-move [-1 -1 0
-                                 -1 0 1
-                                  1 1 -1]
-					 -1
-					 2)))))
+	  (is (= true
+		 (expected-result-of-move [-1 -1 0
+					   -1 0 1
+					   1 1 -1]
+					  -1
+					  2)))))
 
 (deftest expected-result-test
   (is (= -1 
          (expected-result [-1 -1 0
-                            1 -1 1
-                            1 1 -1]
+			   1 -1 1
+			   1 1 -1]
                           -1))
-       "Player -1 should have won")
+      "Player -1 should have won")
   (is (= 0 
          (expected-result [0 0 0
-                          0 0 0
-                          0 0 0]
-			 -1))
-       "No one should have won")
+			   0 0 0
+			   0 0 0]
+			  -1))
+      "No one should have won")
   (is (= 1 
          (expected-result [-1 1 -1
-                            1 1 0
+			   1 1 0
                            -1 1 -1]
 			  1))
-       "Player 1 should have won"))
+      "Player 1 should have won"))
