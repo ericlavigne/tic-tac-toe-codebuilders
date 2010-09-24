@@ -17,12 +17,12 @@
 	 (possible-moves eboard))
       "possible-moves broken"))
 
-(deftest test-what-board-looks-like-after-move 
+(deftest test-board-after-move 
   (is (=  [0 0 0 1 -1 -1 0 1 1]
-          (what-board-looks-like-after-move [0 0 0 1 -1 -1 0 0 1]
+          (board-after-move [0 0 0 1 -1 -1 0 0 1]
 					    7
 					    1))
-      "what-board-looks-like broken"))
+      "board-after-move broken"))
 	       
 (deftest test-is-board-full
   (is (= true (is-board-full [1 1 1 1 1 1 1 1 1]))
@@ -55,3 +55,31 @@
 		       -1  0  1]
                       1))
       "Player 1 should win this"))
+
+(comment(deftest test-expected-result-of-move
+  (is (= true
+	 (expected-result-of-move [-1 -1 0
+                                 -1 0 1
+                                  1 1 -1]
+					 -1
+					 2)))))
+
+(deftest expected-result-test
+  (is (= -1 
+         (expected-result [-1 -1 0
+                            1 -1 1
+                            1 1 -1]
+                          -1))
+       "Player -1 should have won")
+  (is (= 0 
+         (expected-result [0 0 0
+                          0 0 0
+                          0 0 0]
+			 -1))
+       "No one should have won")
+  (is (= 1 
+         (expected-result [-1 1 -1
+                            1 1 0
+                           -1 1 -1]
+			  1))
+       "Player 1 should have won"))
