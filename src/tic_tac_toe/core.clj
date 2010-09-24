@@ -59,3 +59,10 @@
 				      (board-after-move board move player)
 				      (* -1 player)))) 
 				(possible-moves board)))))
+				
+(defn best-move [board player]
+  (max-key (fn [move](* player
+	                           (expected-result 
+				      (board-after-move board move player)
+				      (* -1 player)))) 
+				(possible-moves board)))
