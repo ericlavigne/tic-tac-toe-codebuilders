@@ -23,6 +23,20 @@
 			    7
 			    1))
       "board-after-move broken"))
+ (def reasonable-moves-board [1 0 -1
+                                           0 1 0
+                                           0 -1 0])
+					   
+(deftest remaining-combinations-test
+  (is (= #{}
+         (remaining-combinations reasonable-moves-board
+					  1)))
+  (is (= #{#{3 4 5} #{2 5 8}}
+         (remaining-combinations reasonable-moves-board
+					  5)))
+  (is (= #{#{2 5 8} #{0 4 8} #{6 7 8}}
+          (remaining-combinations reasonable-moves-board
+					   8))))
 
 (deftest test-is-board-full
   (is (= true (is-board-full [1 1 1 1 1 1 1 1 1]))
@@ -95,3 +109,10 @@
                            -1 1 -1]
 			  1))
       "Player 1 should have won"))
+
+;(deftest best-move-test
+;  (is (= 2
+;         (best-move [1 -1 0
+;	                   -1 0 1
+;			   -1 0 1
+			    

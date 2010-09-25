@@ -13,14 +13,27 @@
 (defn board-after-move [board move player]
   (assoc board move player))
 
+(def winning-combinations 
+     [#{0 1 2} #{3 4 5} 
+      #{6 7 8} #{0 3 6} 
+      #{1 4 7} #{2 5 8} 
+      #{0 4 8} #{2 4 6}])
+
+(defn remaining-combinations [board move]
+  (set (filter (fn [combo]
+		    (and (contains? combo move)
+		           (not (let [contents
+		                           (set (map (fn [move]
+				                              (nth board move))
+					                  combo))]
+			              (and (contains? contents 1)
+			                     (contains? contents -1))))))
+                 winning-combinations)))
+;(defn reasonable-moves [possible-moves]
+; (cond
+
 (defn is-board-full [board]
   (empty? (possible-moves board)))
-
-(def winning-combinations 
-     [[0 1 2] [3 4 5] 
-      [6 7 8] [0 3 6] 
-      [1 4 7] [2 5 8] 
-      [0 4 8] [2 4 6]])
 
 (defn won-by-method? [board method player]
   (every? (fn [position]
@@ -51,6 +64,8 @@
   (let [scores (map score-fn keys)]
       (reduce max scores)))
 
+
+    
 
 (defn expected-result [board player]
   (let [winner (who-won board)]
