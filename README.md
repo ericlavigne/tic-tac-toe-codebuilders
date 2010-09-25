@@ -31,3 +31,12 @@ possibly another person, via a web application.
          is-move-possible [board move]                   =           player-won? [board player]
 										    =
 						    Winning-combinations   won-by-method? [board method player]
+						    
+In order to make (reasonable-moves run) faster we need to write the following
+functions:
+
+(remaining-combinations board move)
+(combo-value board combo)
+(hightest-combo-value board move)
+
+We also need to test best-move.
