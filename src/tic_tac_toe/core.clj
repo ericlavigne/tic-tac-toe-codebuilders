@@ -48,7 +48,9 @@
                      (map #(vector (k %) %) (cons x (cons y more)))))))
 
 (defn max-value [score-fn & keys]
-  (score-fn (apply max-key2 score-fn keys)))
+  (let [scores (map score-fn keys)]
+      (reduce max scores)))
+
 
 (defn expected-result [board player]
   (let [winner (who-won board)]
@@ -61,7 +63,7 @@
 				(possible-moves board)))))
 				
 (defn best-move [board player]
-  (max-key (fn [move](* player
+  (max-key2 (fn [move](* player
 	                           (expected-result 
 				      (board-after-move board move player)
 				      (* -1 player)))) 
